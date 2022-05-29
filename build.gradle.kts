@@ -16,6 +16,7 @@ repositories {
 }
 
 extra["springCloudVersion"] = "2021.0.1"
+extra["coroutinesVersion"] = "1.6.2"
 
 dependencyManagement {
     imports {
@@ -23,13 +24,15 @@ dependencyManagement {
     }
 }
 
-
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${property("coroutinesVersion")}")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:${property("coroutinesVersion")}")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
